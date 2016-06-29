@@ -3,5 +3,6 @@ class User < ApplicationRecord
   has_many :questions
 
   validates :email, presence: true, uniqueness: true
-  validates_format_of :email, with: /@/
+  validates_format_of :email, with: /@/, message: "must have format abc@abc.com"
+  validates :password, length: { minimum: 4, message: "minimum 4 characters long" }
 end
