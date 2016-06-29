@@ -1,0 +1,12 @@
+<%= render "nav" %>
+
+<% @home.each do |q| %>
+<%= q.id %> <br>
+<%= q.questions %> <br>
+<%= q.created_at %> <br>
+<hr>
+<% end %>
+
+<hr>
+
+<%= link_to "Create New Questions", new_user_question_path(current_user) %>

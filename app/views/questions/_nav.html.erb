@@ -1,0 +1,2 @@
+<h1>Welcome, <%= session[:user_email] %></h1>
+<%= link_to "Sign Out", session_path(current_user), method: :delete, data: { confirmation: "Are You Sure?" } %>

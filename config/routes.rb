@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
-  get 'questions/index'
 
-  get 'questions/show'
+  root to:'sessions#new'
+  get 'home', to: "questions#home"
 
-  get 'questions/new'
-
-  get 'questions/edit'
-
-  root 'sessions#new'
-  # post 'sign_up', to: 'users#create'
-
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :questions
+  end
+  resources :sessions, only: [:new, :create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
