@@ -1,12 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :check_user, except: [:home]
+  before_action :your_question?, only: [:edit, :update, :destroy]
 
   def home
-    @home = Question.all
+    @home = Question.all.order(updated_at: :desc)
   end
 
   def index
-    @myqns = Question.where(user_id: current_user)
+    @myqns = Question.where(user_id: current_user).order(updated_at: :desc)
   end
 
   def show
@@ -54,4 +55,8 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:title, :questions)
   end
 
+  def your_question?
+    @qns = Question.find(params[:id])
+    redirect_to home_path, notice: "This does not belong to you!" unless @qns.user == current_user
+  end
 end

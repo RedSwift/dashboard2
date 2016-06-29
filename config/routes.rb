@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'home', to: "questions#home"
 
   resources :users, only: [:new, :create] do
-    resources :questions
+    resources :questions do
+      resources :comments, except: [:index, :show]
+    end
   end
   resources :sessions, only: [:new, :create, :destroy]
 

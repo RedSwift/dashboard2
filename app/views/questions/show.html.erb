@@ -1,7 +1,8 @@
-<h1>Question: <%= @qns.id %></h1>
+<h1>Question ID: <%= @qns.id %></h1>
 <h3>Title: <%= @qns.title %></h3>
 <p><%= @qns.questions %></p>
 <p>Updated at: <%= @qns.updated_at %></p>
 <p>User ID: <%= @qns.user_id %></p>
+<%= link_to "Add Comments", new_user_question_comment_path(current_user, @qns) %>
 <hr>
 <%= link_to "Home", home_path %>
