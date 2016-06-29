@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'comments/new'
+
+  get 'comments/edit'
+
   root to:'sessions#new'
   get 'home', to: "questions#home"
 

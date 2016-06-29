@@ -3,6 +3,11 @@
 <p><%= @qns.questions %></p>
 <p>Updated at: <%= @qns.updated_at %></p>
 <p>User ID: <%= @qns.user_id %></p>
-<%= link_to "Add Comments", new_user_question_comment_path(current_user, @qns) %>
 <hr>
+<% if @comment.present? %>
+<h3>Comments for this post</h3>
+<p><%= @comment.title %></p>
+<hr>
+<% end %>
+<%= link_to "Add Comments", new_user_question_comment_path(current_user, @qns) %> <br> <br>
 <%= link_to "Home", home_path %>

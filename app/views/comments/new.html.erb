@@ -1,0 +1,23 @@
+<h1>Question ID: <%= @qns.id %></h1>
+<h3>Title: <%= @qns.title %></h3>
+<p><%= @qns.questions %></p>
+<p>Updated at: <%= @qns.updated_at %></p>
+<p>User ID: <%= @qns.user_id %></p>
+<% if @comment.present? %>
+<hr>
+<h3>Comments for this post</h3>
+<p><%= @prev_comments.title %></p>
+<hr>
+<% end %>
+
+<h1>Add your comment</h1>
+<%= form_for [current_user, @qns, @comment] do |f| %>
+  <%= f.label :title %> <br>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :comments %> <br>
+  <%= f.text_area :comments %>
+  <br>
+  <br>
+  <%= f.submit "Submit" %>
+<% end %>

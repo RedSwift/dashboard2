@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
 
   def show
     @qns = Question.find(params[:id])
+    @comment = Comment.find_by(question_id: params[:id])
   end
 
   def new
