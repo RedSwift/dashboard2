@@ -5,5 +5,8 @@
   <p> Question: <br><%= q.questions %></p> <br>
   <%= q.created_at %> <br>
   <%= link_to "Edit", edit_user_question_path(current_user, q) %>
+  <%= link_to "Delete", user_question_path(current_user, q), method: :delete, data: { confirm: "Are You Sure?" } %>
   <hr>
 <% end %>
+<br>
+<%= link_to "Home", home_path %>

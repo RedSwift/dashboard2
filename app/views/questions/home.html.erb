@@ -2,6 +2,7 @@
 <h3> Title: <%= q.title %></h3>
 <p> Question: <br><%= q.questions %></p> <br>
 <%= q.created_at %> <br>
+<%= link_to "Show", user_question_path(q.user_id, q) %>
 <hr>
 <% end %>
 

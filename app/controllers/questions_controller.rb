@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @qns = Question.find(params[:id])
   end
 
   def new
@@ -28,6 +29,12 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    qns = Question.find(params[:id])
+    qns.destroy
+    redirect_to home_path, notice: "successfully deleted!"
   end
 
   private

@@ -1,2 +1,7 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<h1>Question: <%= @qns.id %></h1>
+<h3>Title: <%= @qns.title %></h3>
+<p><%= @qns.questions %></p>
+<p>Updated at: <%= @qns.updated_at %></p>
+<p>User ID: <%= @qns.user_id %></p>
+<hr>
+<%= link_to "Home", home_path %>
