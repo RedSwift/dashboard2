@@ -29,6 +29,17 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @qns = Question.find(params[:id])
+  end
+
+  def update
+    @qns = Question.find(params[:id])
+
+    if @qns.update_attributes(question_params)
+      redirect_to user_question_path(current_user, @qns), notice: "Successfully updated!"
+    else
+      render "edit", notice: "Update failed"
+    end
   end
 
   def destroy
