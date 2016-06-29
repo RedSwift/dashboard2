@@ -9,6 +9,15 @@
   </head>
 
   <body>
+    <% if current_user.present? %>
+    <h1>Welcome, <%= session[:user_email] %></h1>
+    <%= link_to "Sign Out", session_path(current_user), method: :delete, data: { confirmation: "Are You Sure?" } %>
+    <%= link_to "My Posts", user_questions_path(current_user) %>
+    <hr>
+    <% else %>
+    <h1>Welcome</h1>
+    <% end %>
+
     <%= notice %>
     <%= yield %>
   </body>

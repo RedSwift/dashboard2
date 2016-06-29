@@ -1,2 +1,9 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<h3>My Posts</h3>
+
+<% @myqns.each do |q| %>
+  <h3> Title: <%= q.title %></h3>
+  <p> Question: <br><%= q.questions %></p> <br>
+  <%= q.created_at %> <br>
+  <%= link_to "Edit", edit_user_question_path(current_user, q) %>
+  <hr>
+<% end %>

@@ -1,2 +1,16 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<h1>New Questions</h1>
+
+<%= form_for [current_user, @qns] do |q| %>
+  <%=  q.label :title %> <br>
+  <%= q.text_field :title %>
+  <br>
+  <%=  q.label :questions %> <br>
+  <%= q.text_area :questions %>
+  <br>
+
+  <%= q.submit "Submit" %>
+<% end %>
+
+<hr>
+
+<%= link_to "Back", home_path %>
