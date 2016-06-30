@@ -1,0 +1,12 @@
+<h1>Exit Ticket</h1>
+<%= @ticket.errors.full_messages if @ticket.errors.full_messages.present? %>
+
+<%= simple_form_for [current_user, @ticket] do |f| %>
+  <%= f.input :topic %>
+  <%= f.input :effective, collection: 1..10, as: :radio_buttons %>
+  <%= f.input :prepare, collection: 1..10, as: :radio_buttons %>
+  <%= f.input :practice, collection: 1..10, as: :radio_buttons%>
+  <%= f.input :info %>
+  <%= f.input :other %>
+  <%= f.button :submit %>
+<% end %>

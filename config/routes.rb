@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'comments/new'
-
-  get 'comments/edit'
-
   root to:'sessions#new'
   get 'home', to: "questions#home"
 
   resources :users, only: [:new, :create] do
+    resources :tickets, except: [:edit, :update, :destroy]
     resources :questions do
       resources :comments, except: [:index, :show]
     end

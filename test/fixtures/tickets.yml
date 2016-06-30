@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: MyString
+  effective: 
+  prepare: 
+  practice: 
+  info: MyText
+  other: MyText
+  user: one
+
+two:
+  topic: MyString
+  effective: 
+  prepare: 
+  practice: 
+  info: MyText
+  other: MyText
+  user: two
