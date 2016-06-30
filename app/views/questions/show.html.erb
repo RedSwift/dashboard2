@@ -1,13 +1,24 @@
+<!-- display current question -->
 <h1>Question ID: <%= @qns.id %></h1>
 <h3>Title: <%= @qns.title %></h3>
 <p><%= @qns.questions %></p>
 <p>Updated at: <%= @qns.updated_at %></p>
 <p>User ID: <%= @qns.user_id %></p>
 <hr>
+
+<!-- display all comments for this question -->
 <% if @comment.present? %>
-<h3>Comments for this post</h3>
-<p><%= @comment.title %></p>
+  <h3>COMMENTS</h3>
+  <% @comment.each do |c| %>
+  <h3>Title: <%= c.title %></h3>
+  <p><%= c.comments %></p>
+  <p>Updated at: <%= c.updated_at %></p>
+  <p>User ID: <%= c.user_id %></p>
+  <%= link_to "Edit comment", edit_user_question_comment_path(current_user, @qns, c) %>
 <hr>
+  <% end %>
 <% end %>
+
+<!-- additional links -->
 <%= link_to "Add Comments", new_user_question_comment_path(current_user, @qns) %> <br> <br>
 <%= link_to "Home", home_path %>

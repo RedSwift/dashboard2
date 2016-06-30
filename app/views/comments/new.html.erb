@@ -3,7 +3,7 @@
 <p><%= @qns.questions %></p>
 <p>Updated at: <%= @qns.updated_at %></p>
 <p>User ID: <%= @qns.user_id %></p>
-<% if @comment.present? %>
+<% if @prev_comments.present? %>
 <hr>
 <h3>Comments for this post</h3>
 <p><%= @prev_comments.title %></p>
@@ -21,3 +21,7 @@
   <br>
   <%= f.submit "Submit" %>
 <% end %>
+
+<hr>
+
+<%= link_to "Back", user_question_path(current_user, @qns) %>

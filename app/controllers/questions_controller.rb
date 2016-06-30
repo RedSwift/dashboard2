@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
 
   def show
     @qns = Question.find(params[:id])
-    @comment = Comment.find_by(question_id: params[:id])
+    @comment = Comment.where(question_id: params[:id]).order(updated_at: :desc)
   end
 
   def new
