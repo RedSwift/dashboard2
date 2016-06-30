@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :your_comment?
+  before_action :your_comment?, except: [:new, :create]
 
   def new
     @qns = Question.find(params[:question_id])
@@ -32,6 +32,12 @@ class CommentsController < ApplicationController
     else
       render "edit", notice: "Edit failed. Please contact administrator."
     end
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to user_question_path(current_user, params[:question_id]), notice: "Comment deleted!"
   end
 
   private

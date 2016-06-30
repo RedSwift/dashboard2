@@ -5,10 +5,7 @@
 <p>User ID: <%= @qns.user_id %></p>
 <% if @prev_comments.present? %>
 <hr>
-<h3>Comments for this post</h3>
-<p><%= @prev_comments.title %></p>
-<hr>
-<% end %>
+
 
 <h1>Add your comment</h1>
 <%= form_for [current_user, @qns, @comment] do |f| %>
@@ -23,5 +20,15 @@
 <% end %>
 
 <hr>
+
+<h3>Comments for this post</h3>
+  <% @prev_comments.each do |c| %>
+  <h3>Title: <%= c.title %></h3>
+  <p><%= c.comments %></p>
+  <p>Updated at: <%= c.updated_at %></p>
+  <p>User ID: <%= c.user_id %></p>
+  <hr>
+  <% end %>
+<% end %>
 
 <%= link_to "Back", user_question_path(current_user, @qns) %>

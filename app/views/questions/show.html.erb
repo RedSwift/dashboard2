@@ -14,7 +14,8 @@
   <p><%= c.comments %></p>
   <p>Updated at: <%= c.updated_at %></p>
   <p>User ID: <%= c.user_id %></p>
-  <%= link_to "Edit comment", edit_user_question_comment_path(current_user, @qns, c) %>
+  <%= link_to "Edit", edit_user_question_comment_path(current_user, @qns, c) %>
+  <%= link_to "Delete", user_question_comment_path(current_user, @qns, c), method: :delete, data: { confirm: "Are You Sure?" } %>
 <hr>
   <% end %>
 <% end %>
