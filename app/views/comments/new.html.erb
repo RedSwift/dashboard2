@@ -3,7 +3,7 @@
 <h3>Title: <%= @qns.title %></h3>
 <p><%= @qns.questions %></p>
 <p>Updated at: <%= @qns.updated_at %></p>
-<p>User ID: <%= @qns.user_id %></p>
+<p>Posted by: <%= @qns.user.email %></p>
 <hr>
 
 <!-- form for adding comments -->
@@ -22,7 +22,7 @@
   <h3>Title: <%= c.title %></h3>
   <p><%= c.comments %></p>
   <p>Updated at: <%= c.updated_at %></p>
-  <p>User ID: <%= c.user_id %></p>
+  <p>Posted by: <%= c.user.email %></p>
   <hr>
   <% end %>
 <% end %>

@@ -7,7 +7,7 @@ class Ticket < ApplicationRecord
 
   def post_limit
     if user.tickets.today.count >= 1
-      errors.add(:post, "You can only submit 1 exit ticket a day")
+      errors.add(:post, "limit once a day")
     end
   end
 end

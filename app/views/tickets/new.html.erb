@@ -9,9 +9,9 @@
   <%= f.input :prepare, collection: 1..10, as: :radio_buttons %>
   <br><p>I feel prepared to continue practicing this skill outside of class.</p>
   <%= f.input :practice, collection: 1..10, as: :radio_buttons%>
-  <br><p>(Optional) Would you like to elaborate on questions above?</p>
+  <br><p>What is the most valuable piece of information you learned during today’s lesson?</p>
   <%= f.input :info %>
-  <p>What is the most valuable piece of information you learned during today’s lesson?</p>
+  <br><p>(Optional) Would you like to elaborate on questions above?</p>
   <%= f.input :other %>
   <%= f.button :submit %>
 <% end %>
