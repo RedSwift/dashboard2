@@ -10,17 +10,22 @@
 
   <body>
     <% if current_user.present? %>
+      <% if notice.present? %>
+        <h1><%= notice %></h1>
+      <% else %>
     <h1>Welcome, <%= session[:user_email] %></h1>
+      <% end %>
     <%= link_to "Sign Out", session_path(current_user), method: :delete, data: { confirmation: "Are You Sure?" } %>
     <%= link_to "My Posts", user_questions_path(current_user) %>
     <%= link_to "Exit Ticket", new_user_ticket_path(current_user) %>
+    <% if is_admin? %>
     <%= link_to "All Tickets", user_tickets_path(current_user) %>
+    <% end %>
     <hr>
     <% else %>
     <h1>Welcome</h1>
     <% end %>
 
-    <h1><%= notice %></h1>
     <%= yield %>
   </body>
 </html>

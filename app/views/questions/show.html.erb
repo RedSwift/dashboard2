@@ -3,7 +3,10 @@
 <h3>Title: <%= @qns.title %></h3>
 <p><%= @qns.questions %></p>
 <p>Updated at: <%= @qns.updated_at %></p>
-<p>User ID: <%= @qns.user_id %></p>
+<p>Posted by: <%= @qns.user.email %></p>
+<% if current_user == @qns.user %>
+<%= link_to "Edit Question", edit_user_question_path(current_user, @qns) %>
+<% end %>
 <hr>
 
 <!-- display all comments for this question -->
@@ -13,8 +16,8 @@
   <h3>Title: <%= c.title %></h3>
   <p><%= c.comments %></p>
   <p>Updated at: <%= c.updated_at %></p>
-  <p>User ID: <%= c.user_id %></p>
-  <%= link_to "Edit", edit_user_question_comment_path(current_user, @qns, c) %>
+  <p>Posted by: <%= c.user.email %></p>
+  <%= link_to "Edit Comments", edit_user_question_comment_path(current_user, @qns, c) %>
   <%= link_to "Delete", user_question_comment_path(current_user, @qns, c), method: :delete, data: { confirm: "Are You Sure?" } %>
 <hr>
   <% end %>

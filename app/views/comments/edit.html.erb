@@ -1,11 +1,7 @@
 <h1>Edit Comment</h1>
 
-<%= form_for [current_user, @qns, @comment] do |f| %>
-  <%= f.label :title %> <br>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :comments %> <br>
-  <%= f.text_area :comments %>
-  <br>
-  <%= f.submit "Update" %>
+<%= simple_form_for [current_user, @qns, @comment] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :comments %>
+  <%= f.button :submit %>
 <% end %>

@@ -1,26 +1,22 @@
+<!-- displaying the question -->
 <h1>Question ID: <%= @qns.id %></h1>
 <h3>Title: <%= @qns.title %></h3>
 <p><%= @qns.questions %></p>
 <p>Updated at: <%= @qns.updated_at %></p>
 <p>User ID: <%= @qns.user_id %></p>
-<% if @prev_comments.present? %>
 <hr>
 
-
+<!-- form for adding comments -->
 <h1>Add your comment</h1>
-<%= form_for [current_user, @qns, @comment] do |f| %>
-  <%= f.label :title %> <br>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :comments %> <br>
-  <%= f.text_area :comments %>
-  <br>
-  <br>
-  <%= f.submit "Submit" %>
+<%= simple_form_for [current_user, @qns, @comment] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :comments %>
+  <%= f.button :submit %>
 <% end %>
-
 <hr>
 
+<!-- displaying all comments -->
+<% if @prev_comments.present? %>
 <h3>Comments for this post</h3>
   <% @prev_comments.each do |c| %>
   <h3>Title: <%= c.title %></h3>

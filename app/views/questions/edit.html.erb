@@ -1,12 +1,7 @@
 <h1>Edit This Question</h1>
 
-<%= form_for [current_user, @qns] do |q| %>
-  <%= q.label :title %> <br>
-  <%= q.text_field :title %>
-  <br>
-  <%= q.label :questions %> <br>
-  <%= q.text_area :questions %>
-  <br>
-
-  <%= q.submit "Update" %>
+<%= simple_form_for [current_user, @qns] do |q| %>
+  <%= q.input :title %>
+  <%= q.input :questions %> <br>
+  <%= q.button :submit %>
 <% end %>

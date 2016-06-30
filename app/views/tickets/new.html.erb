@@ -3,10 +3,15 @@
 
 <%= simple_form_for [current_user, @ticket] do |f| %>
   <%= f.input :topic %>
-  <%= f.input :effective, collection: 1..10, as: :radio_buttons %>
+  <br><p>My instructional team was effective in helping me achieve the learning objectives for this lesson</p>
+  <%= f.input :effective, label: "Effectiveness", collection: 1..10, as: :radio_buttons %>
+  <br><p>The lesson agenda was well-organized and sufficient time was given for each activity. </p>
   <%= f.input :prepare, collection: 1..10, as: :radio_buttons %>
+  <br><p>I feel prepared to continue practicing this skill outside of class.</p>
   <%= f.input :practice, collection: 1..10, as: :radio_buttons%>
+  <br><p>(Optional) Would you like to elaborate on questions above?</p>
   <%= f.input :info %>
+  <p>What is the most valuable piece of information you learned during today’s lesson?</p>
   <%= f.input :other %>
   <%= f.button :submit %>
 <% end %>
